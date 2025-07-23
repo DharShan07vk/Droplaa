@@ -1,12 +1,15 @@
 import express from 'express'
 import archiver  from 'archiver'
-import dotenv from 'dotenv'
+import dotenv, { config } from 'dotenv'
 import mongoose from 'mongoose'
 import multer from 'multer'
 import path  from 'path'
 import crypto, { randomBytes } from 'crypto'
 import { GridFsStorage } from 'multer-gridfs-storage'
 import bodyParser from 'body-parser'
+import cors from 'cors'
+import { fileURLToPath } from 'url'
+import { METHODS } from 'http'
 
 
 
@@ -14,7 +17,22 @@ dotenv.config()
 const app = express()
 app.use(bodyParser.json())
 app.set("view engine", "ejs")
-app.use(express.static("public/static"))
+app.use(express.urlencoded({extended:true}))
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.join(__filename)
+
+//For Vercel Deployment
+app.use(express.static(path.join(__dirname , "public")))
+app.set('views', path.join(__dirname , "views"))
+const corsConfig = {
+  origin : "*",
+  Credential : true,
+  methods : ["GET","POST","PUT","DELETE"]
+};
+app.use(cors(corsConfig))
+
+//For Local
+app.use(express.static("public"))
 let bucket;
 
 //ConnectDB();
