@@ -84,9 +84,9 @@ connect.once("open",()=>{
 })
 
 
-app.listen(3000,'0.0.0.0',()=>{
-  console.log("Listening on 3000");
-})
+// app.listen(3000,'0.0.0.0',()=>{
+//   console.log("Listening on 3000");
+// })
 // Routes
 app.get('/', (req, res) => {
   res.render("home", {fileIds : []})
