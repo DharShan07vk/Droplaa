@@ -9,8 +9,6 @@ import { GridFsStorage } from 'multer-gridfs-storage'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import { fileURLToPath } from 'url'
-import { METHODS } from 'http'
-
 
 
 dotenv.config()
@@ -19,7 +17,7 @@ app.use(bodyParser.json())
 app.set("view engine", "ejs")
 app.use(express.urlencoded({extended:true}))
 const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.join(__filename)
+const __dirname = path.dirname(__filename)
 
 //For Vercel Deployment
 app.use(express.static(path.join(__dirname , "public")))
