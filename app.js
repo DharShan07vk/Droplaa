@@ -64,7 +64,7 @@ const upload = multer({ storage })
 
 console.log(process.env.MongoDbUrl)
 const url = process.env.MongoDbUrl;
-const connect = await mongoose.createConnection(url,{
+const connect = await mongoose.connect(url,{
   useNewurlParser : true,
   useUnifiedTopology : true
 })
@@ -74,10 +74,10 @@ const shareSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now, expires: '1d' } // auto delete after 1 day
 });
 
-const filedb = connect.model('Share', shareSchema);
+const filedb = mongoose.model('Share', shareSchema);
 
 connect.once("open",()=>{
-  bucket = new mongoose.mongo.GridFSBucket(connect.db,{
+  bucket = new mongoose.mongo.GridFSBucket(db,{
     bucketName : 'uploads'
   })
   console.log("Connected and Bucket Created")
@@ -102,9 +102,6 @@ app.post('/upload/file', upload.array("files"), async (req, res) => {
   res.send(shareId)
 });
 
-app.get("/download", (req,res)=>{
-  res.render("download.ejs")
-})
 app.get("/download/:id", async (req, res) => {
  try{
     const shareId = req.params.id;
