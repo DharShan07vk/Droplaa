@@ -23,7 +23,7 @@ const __dirname = path.join(__filename)
 
 //For Vercel Deployment
 app.use(express.static(path.join(__dirname , "public")))
-app.set('views', path.join(__dirname , "views"))
+//app.set('views', path.join(__dirname , "views"))
 const corsConfig = {
   origin : "*",
   Credential : true,
@@ -64,7 +64,7 @@ const storage = new GridFsStorage({
 
 const upload = multer({ storage })
 
-
+console.log(process.env.MongoDbUrl)
 const url = process.env.MongoDbUrl;
 const connect = await mongoose.createConnection(url,{
   useNewurlParser : true,
