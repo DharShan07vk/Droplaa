@@ -1,0 +1,340 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FileFlow | Secure File Sharing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="/" class="logo">
+                    <i class="fas fa-share-alt"></i>
+                    FileFlow
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+   
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Share Files Simply & Securely</h1>
+                <p>FileFlow makes it easy to send large files to anyone, anywhere. No signup required. Fast, secure, and free for everyone.</p>
+                <div class="hero-buttons">
+                    <a href="#upload" class="btn btn-primary">Upload Files</a>
+                    <a href="/" class="btn btn-outline" style="background: rgba(255,255,255,0.1); color: white; border-color: white;">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
+                <path fill="rgba(255,255,255,0.2)" d="M43.4,-65.7C55.6,-56.7,64.2,-42.9,70.5,-28.3C76.8,-13.7,80.7,1.7,77.5,15.3C74.3,29,64,40.9,52.9,52.4C41.8,63.8,29.8,74.7,15.3,80.3C0.8,85.9,-16.2,86.1,-30.6,80.1C-45,74.1,-56.9,61.9,-63.1,47.9C-69.3,33.9,-69.9,18.1,-71.7,1.1C-73.5,-15.9,-76.5,-34,-71.2,-49.1C-65.9,-64.2,-52.3,-76.4,-37.4,-84.2C-22.5,-92,-6.3,-95.4,9.6,-91.8C25.6,-88.2,51.3,-77.6,43.4,-65.7Z" transform="translate(250 200) scale(0.8)"></path>
+                <image href="https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" x="50" y="50" width="400" height="300" clip-path="url(#circleClip)" />
+                <clipPath id="circleClip">
+                    <circle cx="250" cy="200" r="150" />
+                </clipPath>
+            </svg>
+        </div>
+    </section>
+    <section class="upload-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Upload & Share in Seconds</h2>
+      <p>Simply drag and drop your files below to start sharing. We support all file types up to 10GB.</p>
+    </div>
+    <form id="upload">
+      <div class="upload-area" id="uploadArea">
+        <div class="upload-icon">
+          <i class="fas fa-cloud-upload-alt"></i>
+        </div>
+        <h3>Drag & Drop Files Here</h3>
+        <p>or click to browse your device</p>
+        <input type="file" name="files" class="file-input" id="fileInput" multiple>
+        <label for="fileInput" class="btn btn-primary">Select Files</label>
+      </div>
+      <div class="selected-files" id="selectedFiles">
+        <h3>Selected Files</h3>
+        <ul class="file-list" id="fileList"></ul>
+        <div class="upload-actions">
+          <button type="button" class="btn btn-outline" id="clearBtn">Clear All</button>
+          <button type="submit" class="btn btn-primary" id="submitBtn">Upload Files</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<div class="share-links-container" id="uploadResult" style="display: none;">
+  <div class="upload-success" id="uploadSuccess">
+    <div class="success-icon">
+      <i class="fas fa-check-circle"></i>
+    </div>
+    <h3>Upload Successful!</h3>
+    <p>Your files have been uploaded successfully. Share the link below with others.</p>
+  </div>
+  <div class="share-item">
+    <input type="text" class="share-link-text" id="share-link-text" readonly>
+    <button class="copyBtn" type="button">
+      <i class="fas fa-copy"></i> Copy
+    </button>
+  </div>
+</div>
+
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Powerful Features</h2>
+                <p>Everything you need to share files quickly and securely</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Bank-Level Security</h3>
+                    <p>All files are encrypted during transfer and storage. Automatic deletion after download.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Lightning Fast</h3>
+                    <p>Upload and download files at maximum speed with our global CDN network.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-infinity"></i>
+                    </div>
+                    <h3>Unlimited Transfers</h3>
+                    <p>Send as many files as you want with no daily limits. Perfect for teams.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3>Share Anywhere</h3>
+                    <p>Share via link, email, or directly to social media. Password protection available.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Track Downloads</h3>
+                    <p>Get notified when your files are downloaded. View download statistics.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Optimized</h3>
+                    <p>Works perfectly on any device. Native apps for iOS and Android available.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <a href="#" class="logo" style="color: white; margin-bottom: 20px; display: block;">
+                        <i class="fas fa-share-alt"></i>
+                        FileFlow
+                    </a>
+                    <p>Simple, secure file sharing for everyone. Transfer large files with ease and confidence.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">How It Works</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Status</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">GDPR Compliance</a></li>
+                        <li><a href="#">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 FileFlow. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+   <script>
+  const form = document.getElementById('upload');
+  const navLinks = document.querySelector(".nav-links")
+  const uploadArea = document.getElementById('uploadArea');
+  const fileInput = document.getElementById('fileInput');
+  const fileList = document.getElementById('fileList');
+  const selectedFilesSection = document.getElementById('selectedFiles');
+  const clearBtn = document.getElementById("clearBtn");
+  const shareLinkInput = document.getElementById("share-link-text");
+  const uploadResult = document.getElementById("uploadResult");
+  const hamburger = document.querySelector(".mobile-menu-btn")
+
+  hamburger.addEventListener("click",()=>{
+    navLinks.classList.toggle("active")
+
+  })  
+
+  let selectedFiles = [];
+
+  // Drag events
+  ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+    uploadArea.addEventListener(eventName, e => {
+      e.preventDefault();
+      e.stopPropagation();
+    }, false);
+  });
+
+  ['dragenter', 'dragover'].forEach(eventName => {
+    uploadArea.addEventListener(eventName, () => uploadArea.classList.add('highlight'));
+  });
+
+  ['dragleave', 'drop'].forEach(eventName => {
+    uploadArea.addEventListener(eventName, () => uploadArea.classList.remove('highlight'));
+  });
+
+  // Handle dropped files
+  uploadArea.addEventListener('drop', e => {
+    const files = Array.from(e.dataTransfer.files);
+    selectedFiles.push(...files);
+    uploadResult.style.display = 'none';
+    renderFileList();
+  });
+
+  // Handle manual selection
+  fileInput.addEventListener('change', e => {
+    const files = Array.from(e.target.files);
+    selectedFiles.push(...files);
+    uploadResult.style.display = 'none';
+    renderFileList();
+  });
+
+  // Clear button
+  clearBtn.addEventListener("click", () => {
+    selectedFiles = [];
+    fileInput.value = '';
+    renderFileList();
+    uploadResult.style.display = 'none';
+  });
+
+  // Submit form
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    if (selectedFiles.length === 0) {
+      alert("Please select at least one file.");
+      return;
+    }
+
+    const formData = new FormData();
+    selectedFiles.forEach(file => formData.append('files', file));
+
+    const response = await fetch('/upload/file', {
+      method: 'POST',
+      body: formData
+    });
+
+    const shareId = await response.text();
+    shareLinkInput.value = `http://localhost:3000/download/${shareId}`;
+    uploadResult.style.display = 'block';
+
+    selectedFiles = [];
+    fileInput.value = '';
+    renderFileList();
+    setupCopyButtons();
+  });
+
+  function renderFileList() {
+    fileList.innerHTML = '';
+    selectedFilesSection.style.display = selectedFiles.length ? 'block' : 'none';
+
+    selectedFiles.forEach((file, index) => {
+      const li = document.createElement('li');
+      li.innerHTML = `
+        ${file.name} (${(file.size / 1024).toFixed(2)} KB)
+        <button class="remove-btn" data-index="${index}" style="margin-left: 10px;">❌</button>
+      `;
+      fileList.appendChild(li);
+    });
+
+    document.querySelectorAll('.remove-btn').forEach(btn => {
+      btn.addEventListener('click', e => {
+        const index = e.target.getAttribute('data-index');
+        selectedFiles.splice(index, 1);
+        renderFileList();
+      });
+    });
+  }
+
+  function setupCopyButtons() {
+    const copyButtons = document.querySelectorAll(".copyBtn");
+    copyButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const input = btn.previousElementSibling;
+        input.select();
+        input.setSelectionRange(0, 99999);
+        if(navigator.clipboard){
+        navigator.clipboard.writeText(input.value).then(() => {
+          btn.innerHTML = "Copied!!";
+          setTimeout(() => {
+            btn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+          }, 3000);
+        });}
+        else{
+            document.execCommand('copy')
+        }
+      });
+    });
+  }
+</script>
+
+</body>
+</html>
+
+
+

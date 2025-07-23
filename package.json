@@ -1,0 +1,27 @@
+{
+  "name": "file-transfer",
+  "version": "1.0.0",
+  "description": "\"flie transfer from one to World Wide\"",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "dharshan",
+  "license": "ISC",
+  "dependencies": {
+    "archiver": "^7.0.1",
+    "body-parser": "^2.2.0",
+    "dotenv": "^17.2.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "method-override": "^3.0.0",
+    "mongodb": "^5.8.0",
+    "mongoose": "^6.12.3",
+    "multer": "^1.4.5-lts.1",
+    "multer-gridfs-storage": "^5.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
