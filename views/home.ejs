@@ -270,31 +270,63 @@
   });
 
   // Submit form
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+ form.addEventListener('submit', async (e) => {
+  e.preventDefault();
 
-    if (selectedFiles.length === 0) {
-      alert("Please select at least one file.");
-      return;
-    }
+  if (selectedFiles.length === 0) {
+    alert("Please select at least one file.");
+    return;
+  }
 
-    const formData = new FormData();
-    selectedFiles.forEach(file => formData.append('files', file));
+  const formData = new FormData();
+  selectedFiles.forEach(file => formData.append('files', file));
 
-    const response = await fetch('/upload/file', {
-      method: 'POST',
-      body: formData
-    });
+  // Show progress container
+  document.getElementById("progressContainer").style.display = 'block';
+  const progressFill = document.getElementById("progressFill");
+  const progressText = document.getElementById("progressText");
 
-    const shareId = await response.text();
-    shareLinkInput.value = `https://droplaa.vercel.app/download/${shareId}`;
-    uploadResult.style.display = 'block';
+  try {
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '/upload/file');
 
-    selectedFiles = [];
-    fileInput.value = '';
-    renderFileList();
-    setupCopyButtons();
-  });
+    // Progress event
+    xhr.upload.onprogress = (event) => {
+      if (event.lengthComputable) {
+        const percent = Math.round((event.loaded / event.total) * 100);
+        progressFill.style.width = `${percent}%`;
+        progressText.innerText = `Uploading... ${percent}%`;
+      }
+    };
+
+    xhr.onload = () => {
+      if (xhr.status === 200) {
+        const shareId = xhr.responseText;
+        shareLinkInput.value = `https://droplaa.vercel.app/download/${shareId}`;
+        uploadResult.style.display = 'block';
+        progressText.innerText = 'Upload complete!';
+        progressFill.style.background = 'linear-gradient(to right, #00c851, #007E33)';
+      } else {
+        progressText.innerText = 'Upload failed.';
+        progressFill.style.background = '#dc3545';
+      }
+      selectedFiles = [];
+      fileInput.value = '';
+      renderFileList();
+      setupCopyButtons();
+    };
+
+    xhr.onerror = () => {
+      progressText.innerText = 'An error occurred during upload.';
+      progressFill.style.background = '#dc3545';
+    };
+
+    xhr.send(formData);
+  } catch (error) {
+    progressText.innerText = 'Unexpected error occurred.';
+    progressFill.style.background = '#dc3545';
+  }
+});
 
   function renderFileList() {
     fileList.innerHTML = '';
