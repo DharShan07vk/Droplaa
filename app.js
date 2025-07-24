@@ -63,10 +63,7 @@ mongoose.connect(process.env.MongoDbUrl, {
   bucket = new mongoose.mongo.GridFSBucket(db, {
     bucketName: 'uploads'
   });
-  console.log("Connected and Bucket Created");
-}).catch(err => {
-  console.error("MongoDB connection error", err);
-});
+}).catch(err => {});
 
 // Schema
 const shareSchema = new mongoose.Schema({
@@ -88,7 +85,7 @@ app.post('/upload/file', upload.array("files"), async (req, res) => {
     await filedb.create({ shareId, fileIds });
     res.send(shareId);
   } catch (err) {
-    console.error("Upload error:", err);
+    
     res.status(500).send("Upload Failed");
   }
 });
@@ -100,7 +97,7 @@ app.get("/download/:id", async (req, res) => {
     if (!isShare) return res.status(404).send("No Files Shared");
 
     const archive = archiver('zip', { zlib: { level: 9 } });
-    res.attachment(`shared-files-${shareId}.zip`);
+    res.attachment(`DropLaa-${shareId}.zip`);
     archive.pipe(res);
 
     for (const fileId of isShare.fileIds) {
@@ -113,7 +110,6 @@ app.get("/download/:id", async (req, res) => {
 
     archive.finalize();
   } catch (err) {
-    console.error("Download error:", err);
     res.status(500).send("Internal Server Error!! Download Failed");
   }
 });
