@@ -129,10 +129,6 @@ app.get('/cookies', (req, res) => {
   res.render("cookies");
 });
 
-app.get('/gdpr', (req, res) => {
-  res.render("gdpr");
-});
-
 app.get('/security', (req, res) => {
   res.render("security");
 });
