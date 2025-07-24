@@ -1,0 +1,345 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center | DropLaa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .page-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 120px 0 80px;
+            text-align: center;
+            color: white;
+        }
+        
+        .search-box {
+            max-width: 600px;
+            margin: 40px auto 0;
+            position: relative;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .search-box i {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+        }
+        
+        .help-section {
+            padding: 80px 0;
+        }
+        
+        .help-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .help-category {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .help-category:hover {
+            transform: translateY(-10px);
+        }
+        
+        .help-category i {
+            font-size: 48px;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+        
+        .help-category h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .help-articles {
+            background: #f8f9fa;
+            padding: 60px 0;
+        }
+        
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .article-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .article-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .article-excerpt {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .article-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .article-link:hover {
+            text-decoration: underline;
+        }
+        
+        .contact-support {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .support-btn {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .support-btn:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="/" class="logo">
+                    <i class="fas fa-share-alt"></i>
+                    DropLaa
+                </a>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/#features">Features</a></li>
+                    <li><a href="/how-it-works">How It Works</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Help Center</h1>
+            <p>Find answers to your questions and learn how to get the most out of DropLaa</p>
+            <div class="search-box">
+                <input type="text" placeholder="Search for help articles...">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+    </section>
+
+    <section class="help-section">
+        <div class="container">
+            <div class="help-categories">
+                <div class="help-category">
+                    <i class="fas fa-upload"></i>
+                    <h3>Getting Started</h3>
+                    <p>Learn the basics of uploading and sharing files with DropLaa</p>
+                </div>
+                
+                <div class="help-category">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Security & Privacy</h3>
+                    <p>Understand how we protect your files and maintain your privacy</p>
+                </div>
+                
+                <div class="help-category">
+                    <i class="fas fa-cog"></i>
+                    <h3>Account Management</h3>
+                    <p>Manage your account settings, subscriptions, and preferences</p>
+                </div>
+                
+                <div class="help-category">
+                    <i class="fas fa-bug"></i>
+                    <h3>Troubleshooting</h3>
+                    <p>Solve common issues and technical problems</p>
+                </div>
+                
+                <div class="help-category">
+                    <i class="fas fa-code"></i>
+                    <h3>API & Integration</h3>
+                    <p>Connect DropLaa with your applications using our API</p>
+                </div>
+                
+                <div class="help-category">
+                    <i class="fas fa-credit-card"></i>
+                    <h3>Billing & Plans</h3>
+                    <p>Information about pricing, billing, and subscription management</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="help-articles">
+        <div class="container">
+            <div class="section-title">
+                <h2>Popular Articles</h2>
+                <p>Most frequently accessed help articles</p>
+            </div>
+            
+            <div class="articles-grid">
+                <div class="article-card">
+                    <h3 class="article-title">How to upload files to DropLaa</h3>
+                    <p class="article-excerpt">Step-by-step guide on uploading files using drag-and-drop or file browser selection.</p>
+                    <a href="#" class="article-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="article-card">
+                    <h3 class="article-title">File size limits and supported formats</h3>
+                    <p class="article-excerpt">Learn about maximum file sizes for each plan and which file types are supported.</p>
+                    <a href="#" class="article-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="article-card">
+                    <h3 class="article-title">Setting up password protection</h3>
+                    <p class="article-excerpt">How to add password protection to your shared files for extra security.</p>
+                    <a href="#" class="article-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="article-card">
+                    <h3 class="article-title">Understanding download tracking</h3>
+                    <p class="article-excerpt">Monitor who has accessed your files and when with our download tracking feature.</p>
+                    <a href="#" class="article-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="article-card">
+                    <h3 class="article-title">Troubleshooting upload failures</h3>
+                    <p class="article-excerpt">Common causes of upload failures and how to resolve them quickly.</p>
+                    <a href="#" class="article-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="article-card">
+                    <h3 class="article-title">Mobile app installation guide</h3>
+                    <p class="article-excerpt">Download and set up the DropLaa mobile app on iOS and Android devices.</p>
+                    <a href="#" class="article-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-support">
+        <div class="container">
+            <h2>Still Need Help?</h2>
+            <p>Can't find what you're looking for? Our support team is here to help you.</p>
+            <a href="/contact" class="support-btn">Contact Support</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <a href="#" class="logo" style="color: white; margin-bottom: 20px; display: block;">
+                        <i class="fas fa-share-alt"></i>
+                        DropLaa
+                    </a>
+                    <p>Simple, secure file sharing for everyone. Transfer large files with ease and confidence.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/#features">Features</a></li>
+                        <li><a href="/how-it-works">How It Works</a></li>
+                        <li><a href="/pricing">Pricing</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="/help">Help Center</a></li>
+                        <li><a href="/docs">Documentation</a></li>
+                        <li><a href="/api">API Reference</a></li>
+                        <li><a href="/community">Community</a></li>
+                        <li><a href="/status">Status</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/terms">Terms of Service</a></li>
+                        <li><a href="/cookies">Cookie Policy</a></li>
+                        <li><a href="/gdpr">GDPR Compliance</a></li>
+                        <li><a href="/security">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 DropLaa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector(".mobile-menu-btn");
+        const navLinks = document.querySelector(".nav-links");
+
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+
+        // Search functionality
+        document.querySelector('.search-box input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const searchTerm = this.value;
+                alert(`Searching for: ${searchTerm}`);
+                // Add actual search functionality here
+            }
+        });
+    </script>
+</body>
+</html>
+

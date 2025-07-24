@@ -1,0 +1,357 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation | DropLaa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .page-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 120px 0 80px;
+            text-align: center;
+            color: white;
+        }
+        
+        .docs-section {
+            padding: 80px 0;
+        }
+        
+        .docs-layout {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .docs-sidebar {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+        
+        .docs-nav {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .docs-nav li {
+            margin-bottom: 15px;
+        }
+        
+        .docs-nav a {
+            color: #666;
+            text-decoration: none;
+            display: block;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .docs-nav a:hover,
+        .docs-nav a.active {
+            background: #667eea;
+            color: white;
+        }
+        
+        .docs-content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .docs-content h1 {
+            color: #333;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .docs-content h2 {
+            color: #444;
+            margin: 30px 0 15px;
+        }
+        
+        .docs-content h3 {
+            color: #555;
+            margin: 25px 0 10px;
+        }
+        
+        .docs-content p {
+            line-height: 1.7;
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-family: 'JetBrains Mono', monospace;
+            overflow-x: auto;
+        }
+        
+        .inline-code {
+            background: #f1f5f9;
+            color: #1e293b;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+        }
+        
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .warning-box {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .docs-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .docs-sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="/" class="logo">
+                    <i class="fas fa-share-alt"></i>
+                    DropLaa
+                </a>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/#features">Features</a></li>
+                    <li><a href="/how-it-works">How It Works</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Documentation</h1>
+            <p>Complete guide to using DropLaa and integrating with our platform</p>
+        </div>
+    </section>
+
+    <section class="docs-section">
+        <div class="container">
+            <div class="docs-layout">
+                <nav class="docs-sidebar">
+                    <ul class="docs-nav">
+                        <li><a href="#getting-started" class="active">Getting Started</a></li>
+                        <li><a href="#uploading-files">Uploading Files</a></li>
+                        <li><a href="#sharing-links">Sharing Links</a></li>
+                        <li><a href="#security-features">Security Features</a></li>
+                        <li><a href="#api-integration">API Integration</a></li>
+                        <li><a href="#mobile-apps">Mobile Apps</a></li>
+                        <li><a href="#troubleshooting">Troubleshooting</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="docs-content">
+                    <h1>Getting Started with DropLaa</h1>
+                    
+                    <p>Welcome to DropLaa! This documentation will help you get started with our secure file sharing platform and make the most of all available features.</p>
+                    
+                    <h2>What is DropLaa?</h2>
+                    <p>DropLaa is a secure, fast, and easy-to-use file sharing platform that allows you to send large files to anyone, anywhere. With bank-level encryption and no file size limits on premium plans, DropLaa is perfect for both personal and business use.</p>
+                    
+                    <h2>Quick Start Guide</h2>
+                    <p>Follow these simple steps to share your first file:</p>
+                    
+                    <ol>
+                        <li><strong>Visit the Upload Page:</strong> Navigate to the main upload area on our homepage</li>
+                        <li><strong>Select Your Files:</strong> Drag and drop files or click to browse your device</li>
+                        <li><strong>Upload:</strong> Click the upload button to start transferring your files</li>
+                        <li><strong>Share:</strong> Copy the generated link and share it with your recipients</li>
+                    </ol>
+                    
+                    <div class="info-box">
+                        <strong>Tip:</strong> No account registration is required for basic file sharing. Simply upload and share!
+                    </div>
+                    
+                    <h2>File Upload Limits</h2>
+                    <p>Different plans have different file size and storage limits:</p>
+                    
+                    <ul>
+                        <li><strong>Free Plan:</strong> Up to 2GB per file, 5 files per upload</li>
+                        <li><strong>Pro Plan:</strong> Up to 10GB per file, unlimited files per upload</li>
+                        <li><strong>Business Plan:</strong> Up to 100GB per file, unlimited uploads</li>
+                    </ul>
+                    
+                    <h2>Security Features</h2>
+                    <p>DropLaa implements multiple layers of security to protect your files:</p>
+                    
+                    <h3>End-to-End Encryption</h3>
+                    <p>All files are encrypted using AES-256 encryption during transfer and storage. This ensures that only you and your intended recipients can access the files.</p>
+                    
+                    <div class="code-block">
+# Example of how encryption works
+File â†’ AES-256 Encryption â†’ Secure Storage â†’ Encrypted Transfer â†’ Recipient
+                    </div>
+                    
+                    <h3>Password Protection</h3>
+                    <p>Add an extra layer of security by setting a password for your shared files. Recipients will need to enter the password before they can download the files.</p>
+                    
+                    <div class="warning-box">
+                        <strong>Important:</strong> Store passwords securely and share them through a different communication channel than the download link.
+                    </div>
+                    
+                    <h2>Using the API</h2>
+                    <p>For developers who want to integrate DropLaa into their applications, we provide a comprehensive REST API.</p>
+                    
+                    <h3>Authentication</h3>
+                    <p>API requests require authentication using an API key. You can generate API keys from your account dashboard.</p>
+                    
+                    <div class="code-block">
+curl -X POST "https://api.droplaa.com/v1/upload" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: multipart/form-data" \
+  -F "file=@/path/to/your/file.pdf"
+                    </div>
+                    
+                    <h3>Upload Endpoint</h3>
+                    <p>The <span class="inline-code">POST /v1/upload</span> endpoint allows you to upload files programmatically.</p>
+                    
+                    <h2>Mobile Applications</h2>
+                    <p>DropLaa is available on both iOS and Android platforms. The mobile apps provide the same security and features as the web platform, optimized for mobile use.</p>
+                    
+                    <h3>Key Mobile Features</h3>
+                    <ul>
+                        <li>Upload files directly from your camera roll</li>
+                        <li>Share files from other apps using the share sheet</li>
+                        <li>Receive push notifications when files are downloaded</li>
+                        <li>Offline viewing of download history</li>
+                    </ul>
+                    
+                    <h2>Troubleshooting Common Issues</h2>
+                    
+                    <h3>Upload Failures</h3>
+                    <p>If your upload fails, try these solutions:</p>
+                    <ul>
+                        <li>Check your internet connection</li>
+                        <li>Ensure the file size is within your plan limits</li>
+                        <li>Try uploading one file at a time</li>
+                        <li>Clear your browser cache and cookies</li>
+                    </ul>
+                    
+                    <h3>Slow Upload Speeds</h3>
+                    <p>To improve upload speeds:</p>
+                    <ul>
+                        <li>Use a wired internet connection instead of Wi-Fi</li>
+                        <li>Close other applications using bandwidth</li>
+                        <li>Upload during off-peak hours</li>
+                        <li>Consider compressing large files before upload</li>
+                    </ul>
+                    
+                    <div class="info-box">
+                        <strong>Need More Help?</strong> Visit our <a href="/help">Help Center</a> or <a href="/contact">contact our support team</a> for personalized assistance.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <a href="#" class="logo" style="color: white; margin-bottom: 20px; display: block;">
+                        <i class="fas fa-share-alt"></i>
+                        DropLaa
+                    </a>
+                    <p>Simple, secure file sharing for everyone. Transfer large files with ease and confidence.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/#features">Features</a></li>
+                        <li><a href="/how-it-works">How It Works</a></li>
+                        <li><a href="/pricing">Pricing</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="/help">Help Center</a></li>
+                        <li><a href="/docs">Documentation</a></li>
+                        <li><a href="/api">API Reference</a></li>
+                        <li><a href="/community">Community</a></li>
+                        <li><a href="/status">Status</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/terms">Terms of Service</a></li>
+                        <li><a href="/cookies">Cookie Policy</a></li>
+                        <li><a href="/gdpr">GDPR Compliance</a></li>
+                        <li><a href="/security">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 DropLaa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector(".mobile-menu-btn");
+        const navLinks = document.querySelector(".nav-links");
+
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.docs-nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.docs-nav a').forEach(a => a.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
+

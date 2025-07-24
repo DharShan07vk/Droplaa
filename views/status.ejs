@@ -1,0 +1,531 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status | DropLaa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .page-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 120px 0 80px;
+            text-align: center;
+            color: white;
+        }
+        
+        .status-overview {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .status-banner {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .status-banner.warning {
+            background: #fff3cd;
+            border-color: #ffeaa7;
+        }
+        
+        .status-banner.error {
+            background: #f8d7da;
+            border-color: #f5c6cb;
+        }
+        
+        .status-icon {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+        
+        .status-icon.operational { color: #28a745; }
+        .status-icon.warning { color: #ffc107; }
+        .status-icon.error { color: #dc3545; }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .service-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .service-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .service-status {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+        
+        .service-status.operational {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .service-status.degraded {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .service-status.outage {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .uptime-bar {
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        
+        .uptime-fill {
+            height: 100%;
+            background: #28a745;
+            transition: width 0.3s ease;
+        }
+        
+        .uptime-text {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .metrics-section {
+            padding: 80px 0;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .metric-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .metric-value {
+            font-size: 36px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .metric-label {
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .incidents-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .incident-item {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .incident-header {
+            display: flex;
+            justify-content: between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .incident-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .incident-time {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .incident-status {
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-left: auto;
+        }
+        
+        .incident-status.resolved {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .incident-status.investigating {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .incident-description {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .subscribe-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .subscribe-form {
+            max-width: 400px;
+            margin: 30px auto 0;
+            display: flex;
+            gap: 15px;
+        }
+        
+        .subscribe-form input {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        
+        .subscribe-form button {
+            background: white;
+            color: #667eea;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .subscribe-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="/" class="logo">
+                    <i class="fas fa-share-alt"></i>
+                    DropLaa
+                </a>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/#features">Features</a></li>
+                    <li><a href="/how-it-works">How It Works</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>System Status</h1>
+            <p>Real-time status and performance metrics for all DropLaa services</p>
+        </div>
+    </section>
+
+    <section class="status-overview">
+        <div class="container">
+            <div class="status-banner">
+                <i class="fas fa-check-circle status-icon operational"></i>
+                <strong>All Systems Operational</strong> - All services are running normally
+            </div>
+            
+            <div class="section-title">
+                <h2>Service Status</h2>
+                <p>Current status of all DropLaa services</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-name">File Upload Service</div>
+                        <div class="service-status operational">Operational</div>
+                    </div>
+                    <div class="uptime-bar">
+                        <div class="uptime-fill" style="width: 99.9%"></div>
+                    </div>
+                    <div class="uptime-text">99.9% uptime (last 30 days)</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-name">File Download Service</div>
+                        <div class="service-status operational">Operational</div>
+                    </div>
+                    <div class="uptime-bar">
+                        <div class="uptime-fill" style="width: 99.8%"></div>
+                    </div>
+                    <div class="uptime-text">99.8% uptime (last 30 days)</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-name">API Gateway</div>
+                        <div class="service-status operational">Operational</div>
+                    </div>
+                    <div class="uptime-bar">
+                        <div class="uptime-fill" style="width: 99.95%"></div>
+                    </div>
+                    <div class="uptime-text">99.95% uptime (last 30 days)</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-name">Web Application</div>
+                        <div class="service-status operational">Operational</div>
+                    </div>
+                    <div class="uptime-bar">
+                        <div class="uptime-fill" style="width: 100%"></div>
+                    </div>
+                    <div class="uptime-text">100% uptime (last 30 days)</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-name">Mobile Apps</div>
+                        <div class="service-status operational">Operational</div>
+                    </div>
+                    <div class="uptime-bar">
+                        <div class="uptime-fill" style="width: 99.7%"></div>
+                    </div>
+                    <div class="uptime-text">99.7% uptime (last 30 days)</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-name">Email Notifications</div>
+                        <div class="service-status operational">Operational</div>
+                    </div>
+                    <div class="uptime-bar">
+                        <div class="uptime-fill" style="width: 99.9%"></div>
+                    </div>
+                    <div class="uptime-text">99.9% uptime (last 30 days)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="metrics-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Performance Metrics</h2>
+                <p>Key performance indicators for the last 24 hours</p>
+            </div>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value">245ms</div>
+                    <div class="metric-label">Average Response Time</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-value">99.9%</div>
+                    <div class="metric-label">Overall Uptime</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-value">1.2M</div>
+                    <div class="metric-label">Requests Processed</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-value">458GB</div>
+                    <div class="metric-label">Data Transferred</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-value">0</div>
+                    <div class="metric-label">Active Incidents</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-value">15,432</div>
+                    <div class="metric-label">Files Uploaded</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="incidents-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Recent Incidents</h2>
+                <p>History of recent incidents and their resolutions</p>
+            </div>
+            
+            <div class="incident-item">
+                <div class="incident-header">
+                    <div>
+                        <div class="incident-title">Scheduled Maintenance - Database Optimization</div>
+                        <div class="incident-time">January 20, 2024 â€¢ 02:00 - 04:00 UTC</div>
+                    </div>
+                    <div class="incident-status resolved">Completed</div>
+                </div>
+                <div class="incident-description">
+                    Performed scheduled database maintenance to optimize performance. All services were temporarily unavailable during the maintenance window. No data was lost and all services are now operating normally.
+                </div>
+            </div>
+            
+            <div class="incident-item">
+                <div class="incident-header">
+                    <div>
+                        <div class="incident-title">Brief Upload Service Degradation</div>
+                        <div class="incident-time">January 15, 2024 â€¢ 14:30 - 15:15 UTC</div>
+                    </div>
+                    <div class="incident-status resolved">Resolved</div>
+                </div>
+                <div class="incident-description">
+                    Users experienced slower than normal upload speeds due to increased traffic. The issue was resolved by scaling up our infrastructure. Average upload speeds returned to normal within 45 minutes.
+                </div>
+            </div>
+            
+            <div class="incident-item">
+                <div class="incident-header">
+                    <div>
+                        <div class="incident-title">Email Notification Delays</div>
+                        <div class="incident-time">January 10, 2024 â€¢ 09:00 - 11:30 UTC</div>
+                    </div>
+                    <div class="incident-status resolved">Resolved</div>
+                </div>
+                <div class="incident-description">
+                    Email notifications for file downloads were delayed by up to 2 hours due to a configuration issue with our email service provider. All delayed notifications were successfully delivered once the issue was resolved.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="subscribe-section">
+        <div class="container">
+            <h2>Stay Informed</h2>
+            <p>Subscribe to status updates and get notified about incidents and maintenance</p>
+            <form class="subscribe-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <a href="#" class="logo" style="color: white; margin-bottom: 20px; display: block;">
+                        <i class="fas fa-share-alt"></i>
+                        DropLaa
+                    </a>
+                    <p>Simple, secure file sharing for everyone. Transfer large files with ease and confidence.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/#features">Features</a></li>
+                        <li><a href="/how-it-works">How It Works</a></li>
+                        <li><a href="/pricing">Pricing</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="/help">Help Center</a></li>
+                        <li><a href="/docs">Documentation</a></li>
+                        <li><a href="/api">API Reference</a></li>
+                        <li><a href="/community">Community</a></li>
+                        <li><a href="/status">Status</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/terms">Terms of Service</a></li>
+                        <li><a href="/cookies">Cookie Policy</a></li>
+                        <li><a href="/gdpr">GDPR Compliance</a></li>
+                        <li><a href="/security">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 DropLaa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector(".mobile-menu-btn");
+        const navLinks = document.querySelector(".nav-links");
+
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+
+        // Subscribe form handling
+        document.querySelector('.subscribe-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for subscribing to status updates!');
+            this.reset();
+        });
+
+        // Auto-refresh status every 30 seconds
+        setInterval(() => {
+            // In a real application, this would fetch fresh status data
+            console.log('Refreshing status data...');
+        }, 30000);
+    </script>
+</body>
+</html>
+
