@@ -1,0 +1,480 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community | DropLaa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .page-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 120px 0 80px;
+            text-align: center;
+            color: white;
+        }
+        
+        .community-stats {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .community-section {
+            padding: 80px 0;
+        }
+        
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .community-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .community-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .community-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .community-header i {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        
+        .community-content {
+            padding: 30px;
+        }
+        
+        .community-link {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+        
+        .community-link:hover {
+            background: #5a6fd8;
+        }
+        
+        .discussion-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .discussion-item {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .discussion-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        
+        .discussion-meta {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .discussion-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .discussion-excerpt {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .discussion-stats {
+            display: flex;
+            gap: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .newsletter-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .newsletter-form {
+            max-width: 500px;
+            margin: 40px auto 0;
+            display: flex;
+            gap: 15px;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        
+        .newsletter-form button {
+            background: white;
+            color: #667eea;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="/" class="logo">
+                    <i class="fas fa-share-alt"></i>
+                    DropLaa
+                </a>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/#features">Features</a></li>
+                    <li><a href="/how-it-works">How It Works</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Join Our Community</h1>
+            <p>Connect with other DropLaa users, share tips, and get support from our vibrant community</p>
+        </div>
+    </section>
+
+    <section class="community-stats">
+        <div class="container">
+            <div class="section-title">
+                <h2>Community by the Numbers</h2>
+                <p>See how our community is growing and thriving</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">50K+</div>
+                    <div class="stat-label">Active Users</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1.2M</div>
+                    <div class="stat-label">Files Shared</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Forum Posts</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">99.9%</div>
+                    <div class="stat-label">Uptime</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="community-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Join the Conversation</h2>
+                <p>Connect with us on your favorite platforms</p>
+            </div>
+            <div class="community-grid">
+                <div class="community-card">
+                    <div class="community-header">
+                        <i class="fab fa-discord"></i>
+                        <h3>Discord Server</h3>
+                    </div>
+                    <div class="community-content">
+                        <p>Join our Discord community for real-time chat, support, and discussions with other DropLaa users.</p>
+                        <ul style="margin: 15px 0; padding-left: 20px;">
+                            <li>Get instant help from the community</li>
+                            <li>Share tips and tricks</li>
+                            <li>Beta testing opportunities</li>
+                            <li>Direct access to our team</li>
+                        </ul>
+                        <a href="#" class="community-link">Join Discord</a>
+                    </div>
+                </div>
+
+                <div class="community-card">
+                    <div class="community-header">
+                        <i class="fab fa-reddit"></i>
+                        <h3>Reddit Community</h3>
+                    </div>
+                    <div class="community-content">
+                        <p>Participate in discussions, ask questions, and share your experiences on our subreddit.</p>
+                        <ul style="margin: 15px 0; padding-left: 20px;">
+                            <li>Community-driven support</li>
+                            <li>Feature requests and feedback</li>
+                            <li>Use case discussions</li>
+                            <li>News and updates</li>
+                        </ul>
+                        <a href="#" class="community-link">Visit Subreddit</a>
+                    </div>
+                </div>
+
+                <div class="community-card">
+                    <div class="community-header">
+                        <i class="fab fa-github"></i>
+                        <h3>GitHub</h3>
+                    </div>
+                    <div class="community-content">
+                        <p>Contribute to our open-source projects and report issues on GitHub.</p>
+                        <ul style="margin: 15px 0; padding-left: 20px;">
+                            <li>Report bugs and issues</li>
+                            <li>Contribute to documentation</li>
+                            <li>Submit feature requests</li>
+                            <li>View our roadmap</li>
+                        </ul>
+                        <a href="#" class="community-link">View on GitHub</a>
+                    </div>
+                </div>
+
+                <div class="community-card">
+                    <div class="community-header">
+                        <i class="fab fa-twitter"></i>
+                        <h3>Twitter</h3>
+                    </div>
+                    <div class="community-content">
+                        <p>Follow us on Twitter for the latest news, updates, and quick support.</p>
+                        <ul style="margin: 15px 0; padding-left: 20px;">
+                            <li>Latest feature announcements</li>
+                            <li>Quick tips and tutorials</li>
+                            <li>Community highlights</li>
+                            <li>Support and updates</li>
+                        </ul>
+                        <a href="#" class="community-link">Follow Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="discussion-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Recent Discussions</h2>
+                <p>See what the community is talking about</p>
+            </div>
+            
+            <div class="discussion-item">
+                <div class="discussion-header">
+                    <div class="user-avatar">JD</div>
+                    <div>
+                        <div><strong>John Doe</strong></div>
+                        <div class="discussion-meta">2 hours ago</div>
+                    </div>
+                </div>
+                <h3 class="discussion-title">Best practices for sharing large video files?</h3>
+                <p class="discussion-excerpt">I'm working with 4K video files that are around 50GB each. What's the best way to optimize upload times and ensure reliable delivery to clients?</p>
+                <div class="discussion-stats">
+                    <span><i class="fas fa-comments"></i> 12 replies</span>
+                    <span><i class="fas fa-heart"></i> 8 likes</span>
+                    <span><i class="fas fa-eye"></i> 156 views</span>
+                </div>
+            </div>
+
+            <div class="discussion-item">
+                <div class="discussion-header">
+                    <div class="user-avatar">SM</div>
+                    <div>
+                        <div><strong>Sarah Mitchell</strong></div>
+                        <div class="discussion-meta">5 hours ago</div>
+                    </div>
+                </div>
+                <h3 class="discussion-title">Feature Request: Bulk upload from cloud storage</h3>
+                <p class="discussion-excerpt">Would love to see integration with Google Drive and Dropbox for bulk uploads. Anyone else interested in this feature?</p>
+                <div class="discussion-stats">
+                    <span><i class="fas fa-comments"></i> 24 replies</span>
+                    <span><i class="fas fa-heart"></i> 31 likes</span>
+                    <span><i class="fas fa-eye"></i> 289 views</span>
+                </div>
+            </div>
+
+            <div class="discussion-item">
+                <div class="discussion-header">
+                    <div class="user-avatar">MK</div>
+                    <div>
+                        <div><strong>Mike Kim</strong></div>
+                        <div class="discussion-meta">1 day ago</div>
+                    </div>
+                </div>
+                <h3 class="discussion-title">API integration success story</h3>
+                <p class="discussion-excerpt">Just successfully integrated DropLaa API into our project management tool. Happy to share some code examples if anyone is interested!</p>
+                <div class="discussion-stats">
+                    <span><i class="fas fa-comments"></i> 18 replies</span>
+                    <span><i class="fas fa-heart"></i> 42 likes</span>
+                    <span><i class="fas fa-eye"></i> 367 views</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter-section">
+        <div class="container">
+            <h2>Stay Connected</h2>
+            <p>Subscribe to our newsletter for community highlights, feature updates, and exclusive content</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <a href="#" class="logo" style="color: white; margin-bottom: 20px; display: block;">
+                        <i class="fas fa-share-alt"></i>
+                        DropLaa
+                    </a>
+                    <p>Simple, secure file sharing for everyone. Transfer large files with ease and confidence.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/#features">Features</a></li>
+                        <li><a href="/how-it-works">How It Works</a></li>
+                        <li><a href="/pricing">Pricing</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="/help">Help Center</a></li>
+                        <li><a href="/docs">Documentation</a></li>
+                        <li><a href="/api">API Reference</a></li>
+                        <li><a href="/community">Community</a></li>
+                        <li><a href="/status">Status</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/terms">Terms of Service</a></li>
+                        <li><a href="/cookies">Cookie Policy</a></li>
+                        <li><a href="/gdpr">GDPR Compliance</a></li>
+                        <li><a href="/security">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 DropLaa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector(".mobile-menu-btn");
+        const navLinks = document.querySelector(".nav-links");
+
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+
+        // Newsletter form handling
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for subscribing! You will receive community updates soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
+

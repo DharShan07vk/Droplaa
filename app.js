@@ -78,6 +78,65 @@ app.get('/', (req, res) => {
   res.render("home", { fileIds: [] });
 });
 
+// Main pages
+app.get('/how-it-works', (req, res) => {
+  res.render("how-it-works");
+});
+
+app.get('/contact', (req, res) => {
+  res.render("contact");
+});
+
+app.get('/pricing', (req, res) => {
+  res.render("pricing");
+});
+
+app.get('/blog', (req, res) => {
+  res.render("blog");
+});
+
+// Resource pages
+app.get('/help', (req, res) => {
+  res.render("help");
+});
+
+app.get('/docs', (req, res) => {
+  res.render("docs");
+});
+
+app.get('/api', (req, res) => {
+  res.render("api");
+});
+
+app.get('/community', (req, res) => {
+  res.render("community");
+});
+
+app.get('/status', (req, res) => {
+  res.render("status");
+});
+
+// Legal pages
+app.get('/privacy', (req, res) => {
+  res.render("privacy");
+});
+
+app.get('/terms', (req, res) => {
+  res.render("terms");
+});
+
+app.get('/cookies', (req, res) => {
+  res.render("cookies");
+});
+
+app.get('/gdpr', (req, res) => {
+  res.render("gdpr");
+});
+
+app.get('/security', (req, res) => {
+  res.render("security");
+});
+
 app.post('/upload/file', upload.array("files"), async (req, res) => {
   try {
     const fileIds = req.files.map(file => file.id);
