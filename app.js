@@ -69,7 +69,7 @@ mongoose.connect(process.env.MongoDbUrl, {
 const shareSchema = new mongoose.Schema({
   shareId: String,
   fileIds: [mongoose.Types.ObjectId],
-  createdAt: { type: Date, default: Date.now, expires: '1d' }
+  createdAt: { type: Date, default: Date.now, expires: 60*60 }
 });
 const filedb = mongoose.model('Share', shareSchema);
 
