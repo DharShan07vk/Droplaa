@@ -77,6 +77,13 @@
         </div>
       </div>
     </form>
+    <div class="progress-container" id="progressContainer" style="display: none;">
+  <div class="progress-text" id="progressText">Uploading...</div>
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+</div>
+
   </div>
 </section>
 
@@ -280,7 +287,7 @@
     });
 
     const shareId = await response.text();
-    shareLinkInput.value = `http://localhost:3000/download/${shareId}`;
+    shareLinkInput.value = `https://droplaa.vercel.app/download/${shareId}`;
     uploadResult.style.display = 'block';
 
     selectedFiles = [];
