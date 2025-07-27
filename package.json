@@ -1,6 +1,6 @@
 {
   "name": "file-transfer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "\"flie transfer from one to World Wide\"",
   "main": "app.js",
   "type": "module",
