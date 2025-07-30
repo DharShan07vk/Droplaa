@@ -14,7 +14,8 @@ dotenv.config();
 const app = express();
 app.use(bodyParser.json());
 app.set("view engine", "ejs");
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true , limit : '1gb'}));
+app.use(express.json({limit : '1gb'}))
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -51,7 +52,9 @@ const storage = new GridFsStorage({
   }
 });
 
-const upload = multer({ storage });
+const upload = multer({ storage,
+  limits: { fileSize: 1024 * 1024 * 1024 },
+ });
 
 // MongoDB Setup
 let bucket;
@@ -169,5 +172,8 @@ app.get("/download/:id", async (req, res) => {
   }
 });
 
+app.listen(3000,(req,res)=>{
+  console.log("Listening")
+})
 //  Export the handler for Vercel
 export default app;

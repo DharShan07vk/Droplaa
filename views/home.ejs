@@ -306,6 +306,7 @@
         progressText.innerText = 'Upload complete!';
         progressFill.style.background = 'linear-gradient(to right, #00c851, #007E33)';
       } else {
+        alert(xhr.status)
         progressText.innerText = 'Upload failed.';
         progressFill.style.background = '#dc3545';
       }
