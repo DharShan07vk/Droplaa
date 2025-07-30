@@ -301,7 +301,8 @@
     xhr.onload = () => {
       if (xhr.status === 200) {
         const shareId = xhr.responseText;
-        shareLinkInput.value = `https://droplaa.vercel.app/download/${shareId}`;
+        const currentHost = window.location.origin;
+        shareLinkInput.value = `${currentHost}/download/${shareId}`;    
         uploadResult.style.display = 'block';
         progressText.innerText = 'Upload complete!';
         progressFill.style.background = 'linear-gradient(to right, #00c851, #007E33)';
